@@ -46,7 +46,7 @@ namespace ismission13RyanPinkney.Controllers
         {
 
             // Fill the bag
-            ViewBag.lstTeams = repo.team.ToList();
+            ViewBag.lstTeams = repo.Teams.ToList();
 
             return View();
         }
@@ -59,18 +59,14 @@ namespace ismission13RyanPinkney.Controllers
             if (!ModelState.IsValid)
             {
                 // Load the bag
-                ViewBag.lstCategories = repo.team.ToList();
+                ViewBag.lstCategories = repo.Teams.ToList();
 
 
                 return View(response);
             }
 
             // Save the infomration to the database
-            repo.Add(response);
-
-            // Save changes on the database
-            repo.SaveChanges();
-
+            repo.CreateBowler(response);
 
             // Return them to the confirmation page
             return View("Index");

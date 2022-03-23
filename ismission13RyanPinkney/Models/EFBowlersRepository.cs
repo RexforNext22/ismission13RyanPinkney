@@ -16,6 +16,28 @@ namespace ismission13RyanPinkney.Models
 
     public IQueryable<Bowler> Bowlers => context.bowlers;
 
+    public IQueryable<Team> Teams => context.teams;
+
+
+
+        // For the admin interface
+        public void SaveBowler(Bowler b)
+        {
+            context.SaveChanges();
+        }
+
+        public void CreateBowler(Bowler b)
+        {
+            context.Add(b);
+            context.SaveChanges();
+        }
+
+        public void DeleteBower(Bowler b)
+        {
+            context.Remove(b);
+            context.SaveChanges();
+        }
+
 
 
 
