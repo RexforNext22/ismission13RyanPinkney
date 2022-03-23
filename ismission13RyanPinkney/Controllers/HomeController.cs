@@ -39,5 +39,43 @@ namespace ismission13RyanPinkney.Controllers
             return View(BowlerList);
         }
 
+
+        // Route for the get Movie
+        [HttpGet]
+        public IActionResult Add()
+        {
+
+            // Fill the bag
+            ViewBag.lstTeams = repo.team.ToList();
+
+            return View();
+        }
+
+        // Route for the post Movie
+        [HttpPost]
+        public IActionResult Add(Bowler response)
+        {
+            // Check to see if the data inputed is valid
+            if (!ModelState.IsValid)
+            {
+                // Load the bag
+                ViewBag.lstCategories = repo.team.ToList();
+
+
+                return View(response);
+            }
+
+            // Save the infomration to the database
+            repo.Add(response);
+
+            // Save changes on the database
+            repo.SaveChanges();
+
+
+            // Return them to the confirmation page
+            return View("Index");
+        }
+
+
     }
 }
