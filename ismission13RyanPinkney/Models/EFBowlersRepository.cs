@@ -32,7 +32,7 @@ namespace ismission13RyanPinkney.Models
             context.SaveChanges();
         }
 
-        public void DeleteBower(Bowler b)
+        public void DeleteBowler(Bowler b)
         {
             context.Remove(b);
             context.SaveChanges();

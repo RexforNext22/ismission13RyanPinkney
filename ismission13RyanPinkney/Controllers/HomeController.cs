@@ -40,7 +40,7 @@ namespace ismission13RyanPinkney.Controllers
         }
 
 
-        // Route for the get Movie
+        // Route for the get bowler
         [HttpGet]
         public IActionResult Add()
         {
@@ -51,7 +51,7 @@ namespace ismission13RyanPinkney.Controllers
             return View();
         }
 
-        // Route for the post Movie
+        // Route for the post bowler
         [HttpPost]
         public IActionResult Add(Bowler response)
         {
@@ -59,7 +59,7 @@ namespace ismission13RyanPinkney.Controllers
             if (!ModelState.IsValid)
             {
                 // Load the bag
-                ViewBag.lstCategories = repo.Teams.ToList();
+                ViewBag.lstTeams = repo.Teams.ToList();
 
 
                 return View(response);
@@ -71,6 +71,61 @@ namespace ismission13RyanPinkney.Controllers
             // Return them to the confirmation page
             return View("Index");
         }
+
+
+
+        // Route to edit get
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            // Load the bag
+            ViewBag.lstTeams = repo.Teams.ToList();
+
+
+            // Pull a single record
+            var oSingleRecord = repo.Bowlers
+            .Single(x => x.BowlerID == id);
+
+
+            // Return the view with the single object
+            return View(oSingleRecord);
+        }
+
+        // Route to edit post
+        [HttpPost]
+        public IActionResult Edit(Bowler response)
+        {
+
+            // Check to see if the data inputted was valid
+            if (!ModelState.IsValid)
+            {
+
+                // Load the bag
+                ViewBag.lstTeams = repo.Teams.ToList();
+
+                // Return to waitlist
+                return View(response);
+
+
+            };
+
+            // Save the infomration to the database
+            repo.SaveBowler(response);
+
+            // Redirect to the movie list route
+            return RedirectToAction("List");
+
+        }
+
+
+
+
+
+
+
+
+
+
 
 
     }

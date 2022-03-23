@@ -7,7 +7,7 @@ namespace ismission13RyanPinkney.Models
     {
 
         IQueryable<Bowler> Bowlers { get; }
-        IQueryable<Bowler> Teams { get; }
+        IQueryable<Team> Teams { get; }
 
 
 
