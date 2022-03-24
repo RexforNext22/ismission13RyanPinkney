@@ -118,10 +118,30 @@ namespace ismission13RyanPinkney.Controllers
         }
 
 
+        // Route to Delete get
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+
+            // Pull a single record
+            var oSingleRecord = repo.Bowlers
+            .Single(x => x.BowlerID == id);
 
 
+            // Return the view with the single object
+            return View(oSingleRecord);
+        }
 
+        // Route to delete post
+        [HttpPost]
+        public IActionResult Delete(Bowler b)
+        {
+            // Delete the record identifed by the id in the response
+            repo.DeleteBowler(b);
 
+            // Redirect to the movie list route
+            return RedirectToAction("Index");
+        }
 
 
 
