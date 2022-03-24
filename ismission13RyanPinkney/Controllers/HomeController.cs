@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Author: Ryan Pinkney
+// This is the home controller with the action routes
+
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;

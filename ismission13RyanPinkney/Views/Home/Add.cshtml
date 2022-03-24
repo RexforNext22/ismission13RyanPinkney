@@ -8,7 +8,7 @@
 
 <!--
 Author: Ryan Pinkney
-Form page
+Form page to add a person
 
 -->
 
@@ -23,28 +23,35 @@ Form page
     <!--Form to add a movie to the database-->
     <form method="POST" class="text-center">
 
-        <!--Field for title-->
+        <!--Field for first name-->
         <label asp-for="BowlerFirstName">First Name</label>
         <input asp-for="BowlerFirstName" /><br />
 
+        <!--Field for last name-->
         <label asp-for="BowlerLastName">Last Name</label>
         <input asp-for="BowlerLastName" /><br />
 
+        <!--Field for middle inital-->
         <label asp-for="BowlerMiddleInit">Middle Inital</label>
         <input asp-for="BowlerMiddleInit" /><br />
 
+        <!--Field for address-->
         <label asp-for="BowlerAddress">Address</label>
         <input asp-for="BowlerAddress" /><br />
 
+        <!--Field for city-->
         <label asp-for="BowlerCity">City</label>
         <input asp-for="BowlerCity" /><br />
 
+        <!--Field for state-->
         <label asp-for="BowlerState">State</label>
         <input asp-for="BowlerState" /><br />
 
+        <!--Field for zip-->
         <label asp-for="BowlerZip">Zip</label>
         <input asp-for="BowlerZip" /><br />
 
+        <!--Field for phone-->
         <label asp-for="BowlerPhoneNumber">Phone</label>
         <input asp-for="BowlerPhoneNumber" /><br />
 
@@ -53,15 +60,14 @@ Form page
         <label asp-for="TeamID">Category:</label>
         <select asp-for="TeamID">
 
-            <!--Load the categories from the database through the controller-->
-            <option value="">Select a Category</option>
+            <!--Load the team name from the database through the controller-->
+            <option value="">Select a Team</option>
 
             @foreach (Team m in ViewBag.lstTeams)
             {
                 <option value="@m.TeamID">@m.TeamName</option>
 
             }
-
         </select><br />
 
         <!--Field to submit-->

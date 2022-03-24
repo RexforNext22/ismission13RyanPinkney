@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Author Ryan Pinkney
+// This is the context file for the repository.
+
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace ismission13RyanPinkney.Models
@@ -12,8 +15,11 @@ namespace ismission13RyanPinkney.Models
 
         }
 
+        // Set the bowler model
         public DbSet<Bowler> bowlers { get; set; }
 
+
+        // set the team model
         public DbSet<Team> teams { get; set; }
 
 

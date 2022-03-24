@@ -59,13 +59,13 @@ namespace ismission13RyanPinkney
 
             app.UseEndpoints(endpoints =>
             {
-
+                // Custom route to filter by team name
                 endpoints.MapControllerRoute(
                     name: "name",
                     pattern: "{teamNames}",
                     defaults: new { Controller = "Home", action = "List"});
 
-
+                // Default route
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

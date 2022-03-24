@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Author: Ryan Pinkney
+// This is the models for the bowler table
+
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

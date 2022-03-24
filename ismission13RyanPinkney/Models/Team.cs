@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Author Ryan Pinkney
+// This is the team models
+
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ismission13RyanPinkney.Models
