@@ -16,13 +16,13 @@ This is the default view for the view component
 <h6>Filter by team:</h6>
 
 <!-- Home button that clears the filter-->
-<a asp-controller="Home" asp-action="List" asp-route-teamNames="" class="btn btn-primary">Home</a><br /><br />
+<a asp-controller="Home" asp-action="List" asp-route-teamNames="" class="btn btn-info">Home</a><br /><br />
 
 <!-- Print out each name of the teams and dynamically build a link to filter-->
 @foreach (string t in Model)
 {
     <a asp-controller="Home" asp-action="List" asp-route-teamNames="@t"
-       class="btn @(ViewBag.SelectedType == t ? "btn-primary" : "btn-secondary")">@t</a> <!-- change the class btn type if selected-->
+       class="btn @(ViewBag.SelectedType == t ? "btn-success" : "btn-secondary")">@t</a> <!-- change the class btn type if selected-->
     <br />
     <br />
     // This line is just like a if statement
