@@ -31,6 +31,8 @@ namespace ismission13RyanPinkney.Controllers
         public IActionResult List(string teamNames)
         {
 
+            ViewBag.header = teamNames;
+
             // Get all the bowlers
             var BowlerList = repo.Bowlers
                 .Where(p => p.Team.TeamName == teamNames || teamNames == null)

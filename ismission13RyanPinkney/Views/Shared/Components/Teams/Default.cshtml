@@ -4,9 +4,15 @@
 @{
 }
 
+
+
 @model IEnumerable<string>
 
-<h2>Check out the different teams</h2>
+<h6>Filter by team:</h6>
+
+
+<a asp-controller="Home" asp-action="List" asp-route-teamNames="" class="btn btn-primary">Home</a><br /><br />
+
 
 @foreach (string t in Model)
 {
@@ -14,5 +20,5 @@
        class="btn @(ViewBag.SelectedType == t ? "btn-primary" : "btn-secondary")">@t</a>
     <br />
     <br />
-// This line is just like a if statement
+    // This line is just like a if statement
 } 
