@@ -13,6 +13,7 @@ namespace ismission13RyanPinkney.Models
 
         // For the admin interface
         public void SaveBowler(Bowler b);
+        public void UpdateBowler(Bowler b);
         public void CreateBowler(Bowler b);
         public void DeleteBowler(Bowler b);
 

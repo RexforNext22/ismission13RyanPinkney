@@ -28,11 +28,12 @@ namespace ismission13RyanPinkney.Controllers
         }
 
         // Path to see all the bowlers
-        public IActionResult List()
+        public IActionResult List(string teamNames)
         {
 
             // Get all the bowlers
             var BowlerList = repo.Bowlers
+                .Where(p => p.Team.TeamName == teamNames || teamNames == null)
                 .Include(x => x.Team)
                 .ToList();
 
@@ -65,11 +66,18 @@ namespace ismission13RyanPinkney.Controllers
                 return View(response);
             }
 
+            var oSingleTimeMax = repo.Bowlers.OrderByDescending(u => u.BowlerID).FirstOrDefault();
+
+
+            response.BowlerID = oSingleTimeMax.BowlerID + 1;
+
             // Save the infomration to the database
             repo.CreateBowler(response);
 
+
+
             // Return them to the confirmation page
-            return View("Index");
+            return RedirectToAction("List");
         }
 
 
@@ -93,7 +101,7 @@ namespace ismission13RyanPinkney.Controllers
 
         // Route to edit post
         [HttpPost]
-        public IActionResult Edit(Bowler response)
+        public IActionResult Edit(Bowler b)
         {
 
             // Check to see if the data inputted was valid
@@ -104,13 +112,13 @@ namespace ismission13RyanPinkney.Controllers
                 ViewBag.lstTeams = repo.Teams.ToList();
 
                 // Return to waitlist
-                return View(response);
+                return View(b);
 
 
             };
 
             // Save the infomration to the database
-            repo.SaveBowler(response);
+            repo.UpdateBowler(b);
 
             // Redirect to the movie list route
             return RedirectToAction("List");
@@ -140,7 +148,7 @@ namespace ismission13RyanPinkney.Controllers
             repo.DeleteBowler(b);
 
             // Redirect to the movie list route
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
 

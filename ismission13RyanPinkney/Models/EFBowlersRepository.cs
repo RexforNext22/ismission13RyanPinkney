@@ -23,6 +23,13 @@ namespace ismission13RyanPinkney.Models
         // For the admin interface
         public void SaveBowler(Bowler b)
         {
+
+            context.SaveChanges();
+        }
+
+        public void UpdateBowler(Bowler b)
+        {
+            context.Update(b);
             context.SaveChanges();
         }
 

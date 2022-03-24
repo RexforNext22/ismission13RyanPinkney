@@ -23,6 +23,10 @@ Form page
     <!--Form to add a movie to the database-->
     <form method="POST" class="text-center">
 
+
+        <!--Hidden field for the bowler id-->
+        <input type="hidden" asp-for="BowlerID" />
+
         <!--Field for title-->
         <label asp-for="BowlerFirstName">First Name</label>
         <input asp-for="BowlerFirstName" /><br />

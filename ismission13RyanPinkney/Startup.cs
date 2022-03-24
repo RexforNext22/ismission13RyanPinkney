@@ -59,6 +59,13 @@ namespace ismission13RyanPinkney
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapControllerRoute(
+                    name: "name",
+                    pattern: "{teamNames}",
+                    defaults: new { Controller = "Home", action = "List"});
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
